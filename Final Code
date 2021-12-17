@@ -1,0 +1,14 @@
+import matplotlib.pyplot as plt
+%matplotlib inline
+import pandas as pd 
+import seaborn as sns
+print("Setup Complete")
+food_insecurity = "../input/foodinsecurity/food insecurity.csv"
+
+food_data = pd.read_csv(food_insecurity, index_col="Year", parse_dates=True)
+
+sns.set_style("whitegrid")
+plt.figure(figsize=(11, 6))
+plt.title("Average Annual Food Insecurity in Hawaii")
+sns.lineplot(x=food_data.index, y=food_data["Food Insecurity Rate"])
+plt.ylabel("Food Insecurity Rate %")
